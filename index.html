@@ -1,28 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Solar System</title>
-<link rel=stylesheet href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the wonders of our solar system with this premium, interactive 3D simulation. Experience realistic orbital mechanics and stunning visuals.">
+    <title>Solaris | Interactive Solar System Simulation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="sun">
-      <img src="./images/sun.png" alt="sun">
-    </div>
-    <div class="mercury"></div>
-    <div class="venus"></div>
-    <div class="earth">
-      <div class="moon"></div>
-    </div>
-    <div class="mars"></div>
-    <div class="jupiter"></div>
-    <div class="saturn"></div>
-    <div class="uranus"></div>
-    <div class="neptune"></div>
-    <div class="pluto">
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
+    <header class="navbar">
+        <div class="logo">SOLARIS</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Simulation</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="solar-system-container" id="home">
+        <div class="sun-container">
+            <img src="assets/images/sun.png" alt="The Sun" class="sun-glow">
+        </div>
+        
+        <!-- Orbits and Planets -->
+        <div class="orbit mercury-orbit" id="mercury" data-name="Mercury" data-dist="57.9M km" data-orbit="88 Days" data-desc="The smallest planet in our solar system and closest to the Sun—is only slightly larger than Earth's Moon."><div class="planet particle-mercury"></div></div>
+        <div class="orbit venus-orbit" id="venus" data-name="Venus" data-dist="108.2M km" data-orbit="225 Days" data-desc="Spinning slowly in the opposite direction from most planets, Venus is the hottest planet in our solar system."><div class="planet particle-venus"></div></div>
+        <div class="orbit earth-orbit" id="earth" data-name="Earth" data-dist="149.6M km" data-orbit="365 Days" data-desc="Our home planet is the only place we know of so far that’s inhabited by living things."><div class="planet particle-earth"><div class="moon-orbit"><div class="moon"></div></div></div></div>
+        <div class="orbit mars-orbit" id="mars" data-name="Mars" data-dist="227.9M km" data-orbit="687 Days" data-desc="A dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was billions of years ago—wetter and warmer."><div class="planet particle-mars"></div></div>
+        <div class="orbit jupiter-orbit" id="jupiter" data-name="Jupiter" data-dist="778.6M km" data-orbit="12 Years" data-desc="More than twice as massive as the other planets of our solar system combined. The giant Great Red Spot is a century-old storm larger than Earth."><div class="planet particle-jupiter"></div></div>
+        <div class="orbit saturn-orbit" id="saturn" data-name="Saturn" data-dist="1.4B km" data-orbit="29 Years" data-desc="Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system."><div class="planet particle-saturn"><div class="rings"></div></div></div>
+        <div class="orbit uranus-orbit" id="uranus" data-name="Uranus" data-dist="2.9B km" data-orbit="84 Years" data-desc="Uranus is an ice giant. It’s the seventh planet from the Sun, and has the third-largest diameter in our solar system."><div class="planet particle-uranus"></div></div>
+        <div class="orbit neptune-orbit" id="neptune" data-name="Neptune" data-dist="4.5B km" data-orbit="165 Years" data-desc="Dark, cold, and whipped by supersonic winds, ice giant Neptune is the eighth and most distant major planet in our solar system."><div class="planet particle-neptune"></div></div>
+        <div class="orbit pluto-orbit" id="pluto" data-name="Pluto" data-dist="5.9B km" data-orbit="248 Years" data-desc="Pluto is a complex and mysterious world with mountains, valleys, plains, craters, and apparently even glaciers."><div class="planet particle-pluto"></div></div>
+    </main>
+
+    <!-- Info Panel (Glassmorphism) -->
+    <aside class="info-panel" id="info-panel">
+        <div class="glass-card">
+            <h2 id="planet-name">Solar System</h2>
+            <p id="planet-description">Hover over a planet to explore its unique characteristics and orbital details.</p>
+            <div class="stats">
+                <div class="stat-item"><span class="label">Distance:</span> <span id="planet-dist">N/A</span></div>
+                <div class="stat-item"><span class="label">Orbit:</span> <span id="planet-orbit">N/A</span></div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="controls">
+        <button id="toggle-orbits">Toggle Orbits</button>
+        <button id="reset-view">Reset View</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
 </html>

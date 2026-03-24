@@ -1,0 +1,358 @@
+:root {
+    --bg-color: #05050a;
+    --sun-color: #ffcc00;
+    --sun-glow: rgba(255, 204, 0, 0.4);
+    --orbit-line: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0c0;
+    --accent-blue: #4da6ff;
+    --glass-bg: rgba(15, 15, 25, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* Orbital Periods (relative to Earth 36.5s) */
+    --mercury-period: 8.8s;
+    --venus-period: 22.5s;
+    --earth-period: 36.5s;
+    --mars-period: 68.7s;
+    --jupiter-period: 433.3s;
+    --saturn-period: 1075.9s;
+    --uranus-period: 3068.7s;
+    --neptune-period: 6019.0s;
+    --pluto-period: 9056.0s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, .logo {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* Background Stars */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    z-index: -2;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #fff, #4da6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--text-primary);
+}
+
+/* Solar System Container */
+.solar-system-container {
+    position: relative;
+    width: 900px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* The Sun */
+.sun-container {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+}
+
+.sun-glow {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 60px var(--sun-glow), 0 0 120px var(--sun-glow);
+    animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 60px var(--sun-glow); }
+    50% { transform: scale(1.05); box-shadow: 0 0 80px var(--sun-glow); }
+}
+
+/* Orbits */
+.orbit {
+    position: absolute;
+    border: 1px solid var(--orbit-line);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.3s ease;
+}
+
+.orbit:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.orbit.hidden {
+    border-color: transparent;
+}
+
+/* Individual Orbits */
+.mercury-orbit { width: 160px; height: 160px; animation: orbit var(--mercury-period) linear infinite; }
+.venus-orbit { width: 220px; height: 220px; animation: orbit var(--venus-period) linear infinite; }
+.earth-orbit { width: 300px; height: 300px; animation: orbit var(--earth-period) linear infinite; }
+.mars-orbit { width: 380px; height: 380px; animation: orbit var(--mars-period) linear infinite; }
+.jupiter-orbit { width: 520px; height: 520px; animation: orbit var(--jupiter-period) linear infinite; }
+.saturn-orbit { width: 660px; height: 660px; animation: orbit var(--saturn-period) linear infinite; }
+.uranus-orbit { width: 780px; height: 780px; animation: orbit var(--uranus-period) linear infinite; }
+.neptune-orbit { width: 880px; height: 880px; animation: orbit var(--neptune-period) linear infinite; }
+.pluto-orbit { width: 960px; height: 960px; animation: orbit var(--pluto-period) linear infinite; }
+
+@keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Planets */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.planet:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Planet Sizes and Images */
+.mercury-orbit .planet { width: 12px; height: 12px; top: -6px; background-image: url('../assets/images/mercury.png'); }
+.venus-orbit .planet { width: 20px; height: 20px; top: -10px; background-image: url('../assets/images/venus.png'); }
+.earth-orbit .planet { width: 22px; height: 22px; top: -11px; background-image: url('../assets/images/earth.png'); }
+.mars-orbit .planet { width: 16px; height: 16px; top: -8px; background-image: url('../assets/images/mars.png'); }
+.jupiter-orbit .planet { width: 48px; height: 48px; top: -24px; background-image: url('../assets/images/jupiter.png'); }
+.saturn-orbit .planet { width: 42px; height: 42px; top: -21px; background-image: url('../assets/images/saturn.png'); }
+.uranus-orbit .planet { width: 30px; height: 30px; top: -15px; background-image: url('../assets/images/uranus.png'); }
+.neptune-orbit .planet { width: 28px; height: 28px; top: -14px; background-image: url('../assets/images/neptune.png'); }
+.pluto-orbit .planet { width: 10px; height: 10px; top: -5px; background-image: url('../assets/images/pluto.png'); }
+
+/* Saturn's Rings */
+.rings {
+    position: absolute;
+    width: 180%;
+    height: 80%;
+    top: 10%;
+    left: -40%;
+    border: 4px solid rgba(180, 150, 100, 0.3);
+    border-radius: 50%;
+    transform: rotateX(75deg);
+    pointer-events: none;
+}
+
+/* Earth's Moon */
+.moon-orbit {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -9px;
+    left: -9px;
+    border-radius: 50%;
+    animation: orbit 2.7s linear infinite;
+}
+
+.moon {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: -3px;
+    left: 17px;
+    background-image: url('../assets/images/moon.png');
+    background-size: cover;
+    border-radius: 50%;
+}
+
+/* Info Panel */
+.info-panel {
+    position: fixed;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-card.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.glass-card h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-blue);
+}
+
+.glass-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 1.5rem;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+.stat-item .label {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* Controls */
+.controls {
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.controls button {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.controls button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .solar-system-container { transform: scale(0.7); }
+    .info-panel { right: 2rem; width: 280px; }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 1.5rem 2rem; }
+    .solar-system-container { transform: scale(0.5); }
+    .info-panel { 
+        position: fixed;
+        bottom: 8rem;
+        top: auto;
+        right: 0;
+        left: 0;
+        width: 90%;
+        margin: 0 auto;
+        transform: translateY(0);
+    }
+    .glass-card { transform: translateY(50px); }
+    .glass-card.active { transform: translateY(0); }
+}
