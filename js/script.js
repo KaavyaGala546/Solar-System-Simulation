@@ -58,15 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
             glassCard.classList.add('active');
             
             // Highlight selected orbit
-            planets.forEach(p => p.style.borderColor = '');
-            planet.style.borderColor = 'rgba(77, 166, 255, 0.6)';
+            planets.forEach(p => p.classList.remove('active-selection'));
+            planet.classList.add('active-selection');
         });
+    });
+
+    const closePanelBtn = document.getElementById('close-panel');
+    closePanelBtn.addEventListener('click', () => {
+        glassCard.classList.remove('active');
+        planets.forEach(p => p.classList.remove('active-selection'));
     });
 
     // Close info card when clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.orbit') && !e.target.closest('.glass-card') && !e.target.closest('.controls')) {
             glassCard.classList.remove('active');
+            planets.forEach(p => p.classList.remove('active-selection'));
         }
     });
 
