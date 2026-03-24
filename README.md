@@ -1,35 +1,35 @@
 # 🌌 Solaris | Interactive Solar System Simulation
 
-Solaris is a premium, interactive 3D solar system simulation built with modern web technologies. It combines high-performance CSS animations with an elegant glassmorphism UI to provide an immersive educational experience.
+Solaris is a premium, interactive 3D solar system simulation built with **HTML5, CSS3, and JavaScript**. It combines high-performance CSS animations with an elegant glassmorphism UI to provide an immersive and educational experience.
 
-![Hero Screenshot](file:///Users/kaavyagala/.gemini/antigravity/brain/ba1c81a4-3881-40d9-9f03-b7b8b98870cf/hero_solar_system_1774343678740.png)
+![Hero Screenshot](assets/previews/hero.png)
 
 ## ✨ Features
 
-- **Realistic Orbital Mechanics**: Each planet follows its relative orbital period using precise CSS keyframe animations.
-- **Interactive Info Panel**: Click on any planet to reveal a dynamic, glassmorphism-styled information card with a smooth "pop-up" animation.
-- **Visual Feedback**: Selection highlights on orbital paths and glowing planet effects.
-- **Responsive Controls**: Toggle orbit lines, reset the view, and smooth zoom functionality.
-- **Premium Aesthetics**: Deep space starfield with twinkling effects and high-quality planet textures.
+- **Realistic Orbital Mechanics**: Each planet follows its relative orbital period using precise GPU-accelerated CSS keyframe animations.
+- **Interactive Info Panel**: Click on any planet to reveal a dynamic, glassmorphism-styled information card with a smooth "pop-up" animation from the right.
+- **Visual Feedback**: Real-time selection highlights on orbital paths and glowing planet effects.
+- **Advanced Controls**: Toggle orbit lines, reset the view, and smooth mouse-wheel zoom functionality.
+- **Premium Aesthetics**: Deep space starfield with twinkling effects, smooth gradients, and high-quality planet textures.
 
 ## 🛠️ Technical Architecture
 
-Solaris is designed with a "CSS-first" philosophy for animations, ensuring buttery-smooth performance even on lower-end devices.
+Solaris is designed with a "CSS-first" philosophy for animations, ensuring buttery-smooth performance by offloading orbit calculations to the browser's render engine.
 
 ### 🎨 CSS Animation Engine
-The core orbital movement is handled entirely by the CSS GPU-accelerated transition engine. By using relative orbital periods (based on Earth's 36.5s cycle), we achieve realistic comparative speeds without the overhead of a heavy physics engine.
+The core orbital movement is handled by the CSS transition engine. By using relative orbital periods (normalized to Earth's 36.5s cycle), we achieve realistic comparative speeds without the overhead of a heavy physics engine.
 - **Keyframes**: `orbit` rotation from `0deg` to `360deg`.
-- **Transitions**: Complex `cubic-bezier` curves are used for UI elements like the info panel to give them a "premium" feel.
+- **Transitions**: Complex `cubic-bezier` curves (e.g., `cubic-bezier(0.34, 1.56, 0.64, 1)`) provide "premium" spring-like animations for UI elements.
 
 ### ⚙️ JavaScript Interactivity
-JavaScript is used as the orchestration layer for user interactions:
-- **Event Delegation**: Efficient click handling for planet selection.
-- **Dynamic Content**: Injecting planetary data from `data-*` attributes into the shared `info-panel`.
-- **State Management**: Handling "Selection Modes" and UI transitions (active/inactive states).
+JavaScript acts as the orchestration layer for all dynamic user interactions:
+- **Event Handling**: Efficient click detection for celestial bodies.
+- **Dynamic Content Injection**: Extracting planetary metadata from the DOM's `data-*` attributes for real-time UI updates.
+- **State Management**: Managing the "Active Selection" state and toggling UI transitions.
 
 ### 📐 Layout & Styling
-- **Flexbox/Grid**: Used for precise centering and responsive UI placement.
-- **Glassmorphism**: Leveraging `backdrop-filter: blur()` and `border: 1px solid rgba(...)` for a modern, aeronautical aesthetic.
+- **Glassmorphism**: Modern UI aesthetic achieved through `backdrop-filter: blur(16px)` and semi-transparent layering.
+- **Responsive Design**: Fluid scaling for different screen sizes, ensuring the simulation remains usable on tablets and laptops.
 
 ## 📂 Project Structure
 
@@ -40,7 +40,8 @@ Solaris/
 │   ├── style.css       # Core styling and animation engine
 │   └── script.js       # Interaction logic and state management
 ├── assets/
-│   └── images/         # Planet and UI textures
+│   ├── images/         # Planet and UI textures
+│   └── previews/       # README screenshots and demonstrations
 └── README.md           # Project documentation and architecture
 ```
 
@@ -51,16 +52,16 @@ Solaris/
    git clone https://github.com/KaavyaGala546/Solar-System-Simulation.git
    ```
 2. **Open the simulation**:
-   Simply open `index.html` in any modern web browser.
+   Simply open `index.html` in any modern web browser to start exploring.
 
 ## 📸 Media Gallery
 
 ````carousel
-![Earth Details](file:///Users/kaavyagala/.gemini/antigravity/brain/ba1c81a4-3881-40d9-9f03-b7b8b98870cf/earth_info_panel_1774343798750.png)
+![Earth Details](assets/previews/earth.png)
 <!-- slide -->
-![Saturn Details](file:///Users/kaavyagala/.gemini/antigravity/brain/ba1c81a4-3881-40d9-9f03-b7b8b98870cf/saturn_info_panel_1774343848646.png)
+![Saturn Details](assets/previews/saturn.png)
 <!-- slide -->
-![Simulation Interaction](file:///Users/kaavyagala/.gemini/antigravity/brain/ba1c81a4-3881-40d9-9f03-b7b8b98870cf/solaris_simulation_demo_1774343618008.webp)
+![Simulation Interaction](assets/previews/demo.webp)
 ````
 
 ## 👩‍💻 Author
