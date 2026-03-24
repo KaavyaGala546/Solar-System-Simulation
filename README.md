@@ -1,4 +1,4 @@
-# 🌌 Solar System Replica
+# 🌌 Solar System Simulation
 
 A visually engaging Solar System simulation built using HTML and CSS, showcasing planetary orbits and animations in a clean and responsive layout.
 
