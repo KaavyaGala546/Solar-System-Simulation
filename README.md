@@ -1,90 +1,69 @@
-# 🌌 Solar System Simulation
+# 🌌 Solaris | Interactive Solar System Simulation
 
-A visually engaging Solar System simulation built using HTML and CSS, showcasing planetary orbits and animations in a clean and responsive layout.
+Solaris is a premium, interactive 3D solar system simulation built with modern web technologies. It combines high-performance CSS animations with an elegant glassmorphism UI to provide an immersive educational experience.
 
----
-
-## 🚀 Overview
-
-This project recreates a simplified model of the solar system using modern web technologies. It focuses on CSS-based animations to simulate planetary motion around the sun.
-
----
-
-## 🔗 Live Demo
-
-https://solar-system-replica.vercel.app
-
----
+![Hero Screenshot](file:///Users/kaavyagala/.gemini/antigravity/brain/ba1c81a4-3881-40d9-9f03-b7b8b98870cf/hero_solar_system_1774343678740.png)
 
 ## ✨ Features
 
-- Animated planetary orbits  
-- Central sun with orbiting planets  
-- Pure CSS animations  
-- Responsive design  
-- Lightweight and fast  
+- **Realistic Orbital Mechanics**: Each planet follows its relative orbital period using precise CSS keyframe animations.
+- **Interactive Info Panel**: Click on any planet to reveal a dynamic, glassmorphism-styled information card with a smooth "pop-up" animation.
+- **Visual Feedback**: Selection highlights on orbital paths and glowing planet effects.
+- **Responsive Controls**: Toggle orbit lines, reset the view, and smooth zoom functionality.
+- **Premium Aesthetics**: Deep space starfield with twinkling effects and high-quality planet textures.
 
----
+## 🛠️ Technical Architecture
 
-## 🛠️ Tech Stack
+Solaris is designed with a "CSS-first" philosophy for animations, ensuring buttery-smooth performance even on lower-end devices.
 
-- HTML5  
-- CSS3  
+### 🎨 CSS Animation Engine
+The core orbital movement is handled entirely by the CSS GPU-accelerated transition engine. By using relative orbital periods (based on Earth's 36.5s cycle), we achieve realistic comparative speeds without the overhead of a heavy physics engine.
+- **Keyframes**: `orbit` rotation from `0deg` to `360deg`.
+- **Transitions**: Complex `cubic-bezier` curves are used for UI elements like the info panel to give them a "premium" feel.
 
----
+### ⚙️ JavaScript Interactivity
+JavaScript is used as the orchestration layer for user interactions:
+- **Event Delegation**: Efficient click handling for planet selection.
+- **Dynamic Content**: Injecting planetary data from `data-*` attributes into the shared `info-panel`.
+- **State Management**: Handling "Selection Modes" and UI transitions (active/inactive states).
+
+### 📐 Layout & Styling
+- **Flexbox/Grid**: Used for precise centering and responsive UI placement.
+- **Glassmorphism**: Leveraging `backdrop-filter: blur()` and `border: 1px solid rgba(...)` for a modern, aeronautical aesthetic.
 
 ## 📂 Project Structure
 
-Solar-System-Replica/
-- index.html  
-- style.css  
-- assets/  
+```text
+Solaris/
+├── index.html          # Main entry point and structural layout
+├── src/
+│   ├── style.css       # Core styling and animation engine
+│   └── script.js       # Interaction logic and state management
+├── assets/
+│   └── images/         # Planet and UI textures
+└── README.md           # Project documentation and architecture
+```
 
----
+## 🚀 Getting Started
 
-## ▶️ Getting Started
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/KaavyaGala546/Solar-System-Simulation.git
+   ```
+2. **Open the simulation**:
+   Simply open `index.html` in any modern web browser.
 
-1. Clone the repository:
-   git clone https://github.com/KaavyaGala546/Solar-System-Replica.git
+## 📸 Media Gallery
 
-2. Navigate to the project folder:
-   cd Solar-System-Replica
-
-3. Open index.html in your browser
-
----
-
-## 🎯 Learning Outcomes
-
-- CSS animations and keyframes  
-- Positioning and transforms  
-- Building UI without JavaScript  
-- Responsive design  
-
----
-
-## 📸 Preview
-
-Add screenshots or GIF here
-
----
-
-## 🔮 Future Improvements
-
-- Add JavaScript interactivity  
-- Improve planet scaling  
-- Add speed controls  
-- Show planet information  
-
----
-
-## 📜 License
-
-MIT License
-
----
+````carousel
+![Earth Details](file:///Users/kaavyagala/.gemini/antigravity/brain/ba1c81a4-3881-40d9-9f03-b7b8b98870cf/earth_info_panel_1774343798750.png)
+<!-- slide -->
+![Saturn Details](file:///Users/kaavyagala/.gemini/antigravity/brain/ba1c81a4-3881-40d9-9f03-b7b8b98870cf/saturn_info_panel_1774343848646.png)
+<!-- slide -->
+![Simulation Interaction](file:///Users/kaavyagala/.gemini/antigravity/brain/ba1c81a4-3881-40d9-9f03-b7b8b98870cf/solaris_simulation_demo_1774343618008.webp)
+````
 
 ## 👩‍💻 Author
 
-Kaavya Gala  
-https://github.com/KaavyaGala546
+**Kaavya Gala**
+[GitHub Profile](https://github.com/KaavyaGala546)
