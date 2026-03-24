@@ -34,11 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Planet Interaction
     planets.forEach(planet => {
-        planet.addEventListener('mouseenter', () => {
+        const planetElement = planet.querySelector('.planet');
+        
+        planetElement.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent document click from closing it immediately
+            
             const name = planet.getAttribute('data-name');
             const desc = planet.getAttribute('data-desc');
             const dist = planet.getAttribute('data-dist');
             const orbitTime = planet.getAttribute('data-orbit');
+
+            // If clicking the same planet, toggle it
+            if (glassCard.classList.contains('active') && planetName.textContent === name) {
+                glassCard.classList.remove('active');
+                return;
+            }
 
             planetName.textContent = name;
             planetDesc.textContent = desc;
@@ -47,13 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             glassCard.classList.add('active');
             
-            // Pause orbit (optional, but makes it easier to read)
-            // planet.style.animationPlayState = 'paused';
-        });
-
-        planet.addEventListener('mouseleave', () => {
-            // glassCard.classList.remove('active');
-            // planet.style.animationPlayState = 'running';
+            // Highlight selected orbit
+            planets.forEach(p => p.style.borderColor = '');
+            planet.style.borderColor = 'rgba(77, 166, 255, 0.6)';
         });
     });
 
